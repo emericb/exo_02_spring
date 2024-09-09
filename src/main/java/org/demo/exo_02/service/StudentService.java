@@ -22,4 +22,10 @@ public class StudentService {
                 .map(student -> student.getFirstName() + " " + student.getLastName())
                 .collect(Collectors.toList());
     }
+
+    public List<Student> getStudentsByLastName(String lastName) {
+        return getStudents().stream()
+                .filter(student -> student.getLastName().equalsIgnoreCase(lastName))
+                .collect(Collectors.toList());
+    }
 }

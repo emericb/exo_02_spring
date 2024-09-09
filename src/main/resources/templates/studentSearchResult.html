@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Search Result</title>
+</head>
+<body>
+<h1>Student Search Result</h1>
+<div th:if="${students != null && !students.isEmpty()}">
+    <th:block th:each="student : ${students}">
+        <p th:text="'Name: ' + ${student.firstName} + ' ' + ${student.lastName}"></p>
+        <p th:text="'Age: ' + ${student.age}"></p>
+        <p th:text="'Email: ' + ${student.email}"></p>
+        <hr/>
+    </th:block>
+</div>
+<div th:if="${students == null || students.isEmpty()}">
+    <p>No student found with the given last name.</p>
+</div>
+</body>
+</html>
